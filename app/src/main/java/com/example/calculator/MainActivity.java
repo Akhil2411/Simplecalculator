@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+/*
     private Button btn9,btn8,btn7,btn6,btn5,btn4,btn3,btn2,btn1,btn0,btnAdd,btnSub,btnMul,btnDiv,btnEqual,btnClr;
     private TextView text,result;
     private final char ADDITION='+';
@@ -223,19 +224,216 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+*/
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////CALCULATOR PROGRAM 2/////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    private Button btn9, btn8, btn7, btn6, btn5, btn4, btn3, btn2, btn1, btn0, btnAdd, btnSub, btnMul, btnDiv, btnEqual, btnClr;
+    private TextView text, result;
+    float val1,val2;
+    boolean Add,Sub,Mul,Div;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        setUpUiViews();
+
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "0");
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "1");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "2");
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "3");
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "4");
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "5");
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "6");
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "7");
+            }
+        });
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "8");
+            }
+        });
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(text.getText().toString() + "9");
+            }
+        });
 
 
 
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(text==null){               //(or text.getText()=="")  //to check if the first number entered is +
+                    text.setText("");
+                }
+                else{                         //if the first number is a number
+
+                    val1=Float.parseFloat(text.getText().toString());    //store the number in val1 when + is clicked
+                    Add=true;     //set the value of variable add as true
+                    text.setText(null);      //clear the textBox
+                }
+            }
+        });
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(text==null){               //(or text.getText()=="")  //to check if the first number entered is -
+                    text.setText("");
+                }
+                else{                         //if the first number is a number
+
+                    val1=Float.parseFloat(text.getText().toString());    //store the number in val1 when - is clicked
+                    Sub=true;     //set the value of variable add as true
+                    text.setText(null);      //clear the textBox
+                }
+            }
+        });
+
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(text==null){               //(or text.getText()=="")  //to check if the first number entered is *
+                    text.setText("");
+                }
+                else{                         //if the first number is a number
+
+                    val1=Float.parseFloat(text.getText().toString());    //store the number in val1 when * is clicked
+                    Mul=true;     //set the value of variable add as true
+                    text.setText(null);      //clear the textBox
+                }
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(text==null){               //(or text.getText()=="")  //to check if the first number entered is /
+                    text.setText("");
+                }
+                else{                         //if the first number is a number
+
+                    val1=Float.parseFloat(text.getText().toString());    //store the number in val1 when / is clicked
+                    Div=true;     //set the value of variable add as true
+                    text.setText(null);      //clear the textBox
+                }
+            }
+        });
+
+        btnEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val2=Float.parseFloat(text.getText().toString());
+                if (Add){                  //if Add is set
+                    text.setText(val1+val2+"");
+                }
+                if (Sub){                  //if Sub is set
+                    text.setText(val1-val2+"");
+                }
+                if (Mul){                  //if Mul is set
+                    text.setText(val1*val2+"");
+                }if (Div){                  //if Div is set
+                    text.setText(val1/val2+"");
+                }
+
+            }
+        });
+
+        btnClr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                text.setText(null);
+            }
+        });
 
 
 
 
+    }
+
+
+    public void setUpUiViews() {
+        btn0 = findViewById(R.id.btn0);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+        btn7 = findViewById(R.id.btn7);
+        btn8 = findViewById(R.id.btn8);
+        btn9 = findViewById(R.id.btn9);
+        btnAdd = findViewById(R.id.btnadd);
+        btnSub = findViewById(R.id.btnsub);
+        btnMul = findViewById(R.id.btnmul);
+        btnDiv = findViewById(R.id.btndiv);
+        btnEqual = findViewById(R.id.btnequal);
+        btnClr = findViewById(R.id.btnclear);
+        text = findViewById(R.id.text);
+        result = findViewById(R.id.Result);
+    }
+
+}
 
 
 
-
-
+////////////////////SIMPLE CALCULATOR SECOND PROGRAM CLOSED/////////////////////////////////////
 
 
 
